@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htmx Example (Flask Backend)</title>
+</head>
+
+<body>
+    <h1>htmx Example (Flask Backend)</h1>
+
+    <!-- Client-side GET request using htmx -->
+    <div>
+        <h2>GET Request</h2>
+        <button hx-trigger="click" hx-get="/get_data" hx-swap="afterend">
+            Get Data
+        </button>
+        <pre id="get-result">
+            <!-- The result will be displayed here -->
+        </pre>
+    </div>
+
+    <!-- Client-side POST request using htmx -->
+    <div>
+        <h2>POST Request</h2>
+        <form id="post-form" hx-trigger="submit" hx-post="/post_data" hx-swap="innerHTML of #post-result">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="post-result">
+            <!-- The result will be displayed here -->
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/htmx.org@1.6.0/dist/htmx.js"></script>
+</body>
+
+</html>
